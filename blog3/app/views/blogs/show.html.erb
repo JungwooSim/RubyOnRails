@@ -1,0 +1,33 @@
+<h1>블로그 게시물</h1>
+<p>
+  <strong>제목 : </strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>내용 : </strong>
+  <%= @blog.description %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %>
+<%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?'} %>
+<%= link_to 'Back', blogs_path %>
+
+<hr>
+
+<h3>댓글</h3>
+<% @blog.comments.each.with_index do |comment, index| %>
+  <div>
+    <p>
+      <span><%= index+1 %>.</span>
+      <%= comment.comment %>
+      <span>
+        <%= link_to '댓글삭제', [comment.blog, comment], method: :delete, data: { confirm: 'Are you sure?'} %>
+      </span>
+    </p>
+  </div>
+  <hr>
+<% end %>
+
+<h3>댓글작성</h3>
+<%= render 'comments/form' %>

@@ -1,0 +1,15 @@
+<h1>Blogs</h1>
+
+<tbody>
+<% @blogs.each.with_index do |blog, index| %>
+  <div>
+    <h2>
+      <span><%= index+1 %>.</span>
+      <%= link_to(blog) do blog.title end %>
+    </h2>
+  </div>
+  <hr>
+<% end %>
+</tbody>
+
+<%= link_to "글쓰기", new_blog_path %>

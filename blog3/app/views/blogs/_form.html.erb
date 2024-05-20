@@ -1,0 +1,15 @@
+<%= form_with(model: blog) do |form| %>
+  <div>
+    <%= form.label "제목", style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label "내용", style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
